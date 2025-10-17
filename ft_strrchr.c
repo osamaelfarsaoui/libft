@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:32:58 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/17 10:48:40 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/17 13:43:35 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t i;
+	unsigned int	i;
 	char	find;
+	char	*result;
 
 	find = (char)c;
-	i = ft_strlen(s);
-	while(s[i])
+	result = NULL;
+	i = 0;
+	while (s[i])
 	{
 		if(s[i] == find)
-			return ((char *)&s[i]);
-		i--;
+			result = ((char *)&s[i]);
+		i++;
 	}
-	if(s[i] == find)
-		return ((char *)&s[i]);
-	return(0);
+	if (s[i] == find)
+		result = ((char *)&s[i]);
+	return (result);
 }

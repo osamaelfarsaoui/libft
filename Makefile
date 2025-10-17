@@ -6,7 +6,7 @@
 #    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/17 10:46:06 by oelfarsa         ###   ########.fr        #
+#    Updated: 2025/10/17 14:06:32 by oelfarsa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ SRCS = ft_atoi.c \
 		ft_memcpy.c \
 		ft_memmove.c \
 		ft_memset.c \
+		ft_memchr.c \
+		ft_memcmp.c \
 		ft_tolower.c \
 		ft_toupper.c \
 
@@ -48,8 +50,9 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "Cleaning object files.."
+	@echo "Cleaning files.."
 	@rm -f $(OBJS)
+	@rm -f $(DEBUG)
 
 fclean: clean
 	@echo "Removing library..."
@@ -57,6 +60,6 @@ fclean: clean
 
 debug:
 	$(CC) $(CFLAGS) $(MAIN) -L. -lft -o $(DEBUG)
-	./$(DEBUG)
+	@./$(DEBUG)
 
 re: fclean all

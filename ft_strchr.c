@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:05:28 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/17 10:40:53 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/17 13:43:14 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
+	unsigned char	i;
 	char	find;
 
 	find = (char)c;
@@ -27,5 +27,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if(s[i] == find)
 		return((char *)&s[i]);
-	return (0);
+	return (NULL);
 }
