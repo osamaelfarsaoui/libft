@@ -1,5 +1,6 @@
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
 //int main()
 //{
@@ -12,27 +13,41 @@
 	//printf("%s\n", ft_strrchr(str1, 'o'));
 //}
 
-
-int main() {
-    const char *haystack = "hello world";
-    const char *needle = "world";
-    size_t len = 11;
-
-    char *result = ft_strnstr(haystack, needle, len);
-    if (result != NULL) {
-        printf("Found '%s' in '%s' at position: %ld\n", needle, haystack, result - haystack);
-    } else {
-        printf("Did not find '%s' in the first %zu characters of '%s'\n", needle, len, haystack);
-    }
-
-    // Another example with shorter length where needle won't fit
-    len = 5;
-    result = ft_strnstr(haystack, needle, len);
-    if (result != NULL) {
-        printf("Found '%s' in '%s' at position: %ld\n", needle, haystack, result - haystack);
-    } else {
-        printf("Did not find '%s' in the first %zu characters of '%s'\n", needle, len, haystack);
-    }
-
+int main(void)
+{
+    char dst[20];
+    char src[] = "World";
+    size_t result;
+    
+    // Test 1: Normal case
+    strcpy(dst, "Hello");
+    result = ft_strlcat(dst, src, sizeof(dst));
+    printf("Test 1: '%s' (return: %zu)\n", dst, result);
+    
+    // Test 2: Buffer exactly filled
+    strcpy(dst, "Hello");
+    result = ft_strlcat(dst, src, 11);
+    printf("Test 2: '%s' (return: %zu)\n", dst, result);
+    
+    // Test 3: Buffer too small
+    strcpy(dst, "Hello");
+    result = ft_strlcat(dst, src, 8);
+    printf("Test 3: '%s' (return: %zu)\n", dst, result);
+    
+    // Test 4: Empty destination
+    dst[0] = '\0';
+    result = ft_strlcat(dst, src, sizeof(dst));
+    printf("Test 4: '%s' (return: %zu)\n", dst, result);
+    
+    // Test 5: Size 0
+    strcpy(dst, "Hello");
+    result = ft_strlcat(dst, src, 0);
+    printf("Test 5: '%s' (return: %zu)\n", dst, result);
+    
+    // Test 6: Empty source
+    strcpy(dst, "Hello");
+    result = ft_strlcat(dst, "", sizeof(dst));
+    printf("Test 6: '%s' (return: %zu)\n", dst, result);
+    
     return 0;
 }
