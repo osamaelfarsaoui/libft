@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 09:16:37 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/17 14:06:10 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/18 01:07:07 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *s1);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+char	*ft_strnstr(const char *big, const char *lil, size_t l);
 void	*ft_memset(void *b, int c, size_t l);
 void	*ft_memmove(void *dst, const void *src, size_t l);
 void	*ft_memcpy(void	*dst, const void *src, size_t n);
