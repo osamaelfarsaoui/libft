@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 14:40:50 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/18 11:55:28 by oelfarsa         ###   ########.fr       */
+/*   Created: 2025/10/18 12:28:29 by oelfarsa          #+#    #+#             */
+/*   Updated: 2025/10/18 13:45:47 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	*calloc(size_t nmemb, size_t size)
 {
 	size_t	i;
-	size_t	l;
+	size_t	cal;
+	unsigned char	*alloc;
 
+	if(nmemb == 0 || size == 0)
+		return (malloc(0));
+	if(nmemb && size && nmemb * size / nmemb != size)
+		return (NULL);
+	cal = nmemb * size;
+	alloc = malloc(sizeof(char) * cal);
+	if(!alloc)
+		return (NULL);
 	i = 0;
-	l = ft_strlen(src);
-	if (size > 0)
+	while(i < cal)
 	{
-		while (i < size - 1 && src[i])
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		alloc[i] = 0;
+		i++;
 	}
-	return(l);
+	return(alloc);
 }

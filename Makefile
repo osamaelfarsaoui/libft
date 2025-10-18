@@ -6,7 +6,7 @@
 #    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/18 01:07:46 by oelfarsa         ###   ########.fr        #
+#    Updated: 2025/10/18 11:59:41 by oelfarsa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = ft_atoi.c \
 		ft_isdigit.c \
 		ft_strncmp.c \
 		ft_strlcpy.c \
+		ft_strlcat.c \
 		ft_strlen.c \
 		ft_strchr.c \
 		ft_strrchr.c \
@@ -65,8 +66,9 @@ fclean: clean
 	@echo "Removing library..."
 	@rm -f $(NAME)
 
-test:
-	$(CC) $()
+remove:
+	@echo "Removing debug file."
+	@rm -f $(DEBUG)
 
 debug:
 	$(CC) $(CFLAGS) $(MAIN) -L. -lft -o $(DEBUG)
