@@ -6,7 +6,7 @@
 #    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/18 11:59:41 by oelfarsa         ###   ########.fr        #
+#    Updated: 2025/10/19 15:18:56 by oelfarsa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_atoi.c \
 		ft_bzero.c \
+		ft_calloc.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
 		ft_isascii.c \
@@ -28,19 +29,19 @@ SRCS = ft_atoi.c \
 		ft_strrchr.c \
 		ft_strdup.c \
 		ft_strnstr.c \
+		ft_substr.c \
 		ft_memcpy.c \
 		ft_memmove.c \
 		ft_memset.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
 		ft_memchr.c \
 		ft_memcmp.c \
 		ft_memcpy.c \
 		ft_tolower.c \
 		ft_toupper.c \
-
-OBJS = $(SRCS:%.c=%.o)
-
-MAIN = main.c
-DEBUG = debug
 
 OBJS = $(SRCS:%.c=%.o)
 
@@ -70,7 +71,7 @@ remove:
 	@echo "Removing debug file."
 	@rm -f $(DEBUG)
 
-debug:
+debug: remove
 	$(CC) $(CFLAGS) $(MAIN) -L. -lft -o $(DEBUG)
 	@./$(DEBUG)
 
