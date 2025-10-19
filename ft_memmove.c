@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:14:33 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/16 20:07:24 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/19 21:15:19 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	*ft_memmove(void *dst, const void *src, size_t l)
 	
 	if(dst == NULL && src == NULL)
 		return (NULL);
-
 	t_dst = (char *)dst;
 	t_src = (char *)src;
 	if (dst < src)
