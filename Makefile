@@ -6,7 +6,7 @@
 #    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/19 21:34:39 by oelfarsa         ###   ########.fr        #
+#    Updated: 2025/10/20 14:49:54 by oelfarsa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,9 @@ SRCS = ft_atoi.c \
 		ft_strnstr.c \
 		ft_substr.c \
 		ft_strjoin.c \
+		ft_strtrim.c \
+		ft_strmapi.c \
+		ft_striteri.c \
 		ft_memcpy.c \
 		ft_memmove.c \
 		ft_memset.c \

@@ -6,15 +6,15 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 09:16:37 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/19 21:34:26 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/20 14:49:30 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 int	ft_atoi(const char *str);
 int	ft_isalnum(int c);
@@ -34,6 +34,9 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *lil, size_t l);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	*ft_memset(void *b, int c, size_t l);
 void	*ft_memmove(void *dst, const void *src, size_t l);
 void	*ft_memcpy(void	*dst, const void *src, size_t n);

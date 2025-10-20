@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 10:20:51 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/20 12:25:43 by oelfarsa         ###   ########.fr       */
+/*   Created: 2025/10/20 13:02:57 by oelfarsa          #+#    #+#             */
+/*   Updated: 2025/10/20 13:40:09 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_itoa(int n)
 {
-	size_t	i;
-	size_t	j;
-	size_t	s_len;
-	char	*sub;
+	int	count;
+	int	sign;
+	char	*alloc;
 
-	s_len = 0;
-	sub = malloc(sizeof(char) * (len + 1));
-	if(!sub)
+	count = 0;
+	while (n > 0)
+	{
+		n = n / 10;
+		count++;
+	}
+	alloc = malloc(sizeof(char) * (count + 1));
+	if (!alloc)
 		return (NULL);
-	i = 0;
-	while (s[i] != (char)start)
-		i++;
-	j = i;
-	while (s[i] && i < j + len)
-		sub[s_len++] = s[i++];
-	sub[s_len] = '\0';
-	return(sub);
+	while (count > 0)
+	{
+		alloc[count] = n % 10 + 48;
+		count--;
+	}
+	alloc[ft_strlen(n)] = '\0';
+	return (alloc);
 }
