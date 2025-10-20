@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 10:20:51 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/20 12:25:43 by oelfarsa         ###   ########.fr       */
+/*   Created: 2025/10/20 13:45:17 by oelfarsa          #+#    #+#             */
+/*   Updated: 2025/10/20 14:31:02 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	i;
-	size_t	j;
-	size_t	s_len;
-	char	*sub;
+	size_t	len;
+	char	*alloc;
 
-	s_len = 0;
-	sub = malloc(sizeof(char) * (len + 1));
-	if(!sub)
-		return (NULL);
+	if(!s || !f)
+		return(NULL);
 	i = 0;
-	while (s[i] != (char)start)
+	len = ft_strlen(s);
+	alloc = malloc(sizeof(char) * (len + 1));
+	if (!alloc)
+		return (NULL);
+	while(s[i])
+	{
+		alloc[i] = f(i, s[i]);
 		i++;
-	j = i;
-	while (s[i] && i < j + len)
-		sub[s_len++] = s[i++];
-	sub[s_len] = '\0';
-	return(sub);
+	}
+	alloc[len] = '\0';
+	return (alloc);
 }
