@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:14:33 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/19 21:15:19 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/21 18:08:55 by fornax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	reverse(char *r_dst, const char *r_src, size_t l)
 	i = l;
 	while(i > 0)
 	{
-		r_dst[i] = r_src[i];
+		r_dst[i - 1] = r_src[i - 1];
 		i--;
 	}
 }
@@ -41,13 +41,13 @@ void	*ft_memmove(void *dst, const void *src, size_t l)
 	char 	*t_dst;
 	char	*t_src;
 	
-	if(dst == NULL && src == NULL)
+	if(!dst && !src)
 		return (NULL);
 	t_dst = (char *)dst;
 	t_src = (char *)src;
-	if (dst < src)
+	if (t_dst < t_src)
 		move(t_dst, t_src, l);
-	else if (dst > src)
+	else if (t_dst > t_src)
 		reverse(t_dst, t_src, l);
 	return (dst);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 09:48:31 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/16 18:41:41 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:53:17 by fornax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);
-	return (0);
+	return (c);
 }

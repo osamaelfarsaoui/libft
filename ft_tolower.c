@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 09:51:39 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/16 18:41:38 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:53:23 by fornax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
-	return(0);
+	return(c);
 }
