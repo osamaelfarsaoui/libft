@@ -6,7 +6,7 @@
 #    By: fornax <fornax@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/21 15:51:44 by fornax           ###   ########.fr        #
+#    Updated: 2025/10/21 19:05:08 by fornax           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS = ft_atoi.c \
 		ft_strtrim.c \
 		ft_strmapi.c \
 		ft_striteri.c \
+		ft_itoa.c \
 		ft_memcpy.c \
 		ft_memmove.c \
 		ft_memset.c \
