@@ -1,10 +1,44 @@
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
 
-int	main(void)
+void run_test(int number, char *expected_str)
 {
+    char *result = ft_itoa(number);
+    
+    printf("Testing:  %d\n", number);
+    printf("Expected: %s\n", expected_str);
+    printf("Got:      %s\n", result);
+    
+    if (result != NULL && strcmp(result, expected_str) == 0)
+    {
+        printf("Result:   OK ✅\n");
+    }
+    else
+    {
+        printf("Result:   FAIL ❌\n");
+    }
+    
+    printf("--------------------------------------\n");
+    free(result); // Don't forget to free the allocated memory!
+}
 
+int main(void)
+{
+    // The test you asked for
+    run_test(INT_MIN, "-2147483648");
+    
+    // Other important edge cases
+    run_test(INT_MAX, "2147483647");
+    run_test(0, "0");
+    
+    // Standard cases
+    run_test(42, "42");
+    run_test(-42, "-42");
+    run_test(1234567, "1234567");
+    
+    return (0);
 }
 
 //int main()
