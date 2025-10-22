@@ -6,7 +6,7 @@
 #    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/22 14:56:21 by oelfarsa         ###   ########.fr        #
+#    Updated: 2025/10/22 19:57:33 by oelfarsa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,8 +72,8 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-bonus:
-	$(CC) 
+bonus: $(NAME)
+	ar rcs $(NAME) $(B_OBJS)
 
 remove:
 	@rm -f $(DEBUG)
