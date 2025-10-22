@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fornax <fornax@student.42.fr>              +#+  +:+       +#+         #
+#    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/21 19:05:08 by fornax           ###   ########.fr        #
+#    Updated: 2025/10/22 14:56:21 by oelfarsa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,32 +48,34 @@ SRCS = ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c \
 
+B_SRCS =
+
+B_OBJS = $(B_SRCS:%_bonus.c:%_bonus.c)
+
 OBJS = $(SRCS:%.c=%.o)
 
 MAIN = main.c
 DEBUG = debug
 
 all: $(NAME)
-	@echo "Library is ready."
 
 $(NAME): $(OBJS)
-	@echo "Linking files.."
-	@ar rcs $(NAME) $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "Cleaning files.."
-	@rm -f $(OBJS)
+	rm -f $(OBJS)
 	@rm -f $(DEBUG)
 
 fclean: clean
-	@echo "Removing library..."
-	@rm -f $(NAME)
+	rm -f $(NAME)
+
+bonus:
+	$(CC) 
 
 remove:
-	@echo "Removing debug file."
 	@rm -f $(DEBUG)
 
 debug: remove
