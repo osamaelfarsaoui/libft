@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 18:30:21 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/22 10:25:21 by oelfarsa         ###   ########.fr       */
+/*   Created: 2025/10/22 15:01:22 by oelfarsa          #+#    #+#             */
+/*   Updated: 2025/10/22 15:13:46 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	size_t	l_dst;
-	size_t	l_src;
+	t_list	*list;
 
-	if(size == 0)
-		return(ft_strlen(src));
-	l_dst = ft_strlen(dst);
-	l_src = ft_strlen(src);
-	if(l_dst >= size)
-		return (size + l_src);
-	i = 0;
-	while(i < size - l_dst - 1 && i < l_src)
-	{
-		dst[l_dst + i] = src[i];
-		i++;
-	}
-	dst[l_dst + i] = '\0';
-	return (l_dst + l_src);
+	list = malloc(sizeof(t_list));
+	if (!list)
+		return (NULL);
+	list->content = content;
+	list->next = NULL;
+	return (list);
 }

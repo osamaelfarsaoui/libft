@@ -3,43 +3,49 @@
 #include <string.h>
 #include <limits.h>
 
-void run_test(int number, char *expected_str)
-{
-    char *result = ft_itoa(number);
-    
-    printf("Testing:  %d\n", number);
-    printf("Expected: %s\n", expected_str);
-    printf("Got:      %s\n", result);
-    
-    if (result != NULL && strcmp(result, expected_str) == 0)
-    {
-        printf("Result:   OK ✅\n");
-    }
-    else
-    {
-        printf("Result:   FAIL ❌\n");
-    }
-    
-    printf("--------------------------------------\n");
-    free(result); // Don't forget to free the allocated memory!
-}
-
 int main(void)
 {
-    // The test you asked for
-    run_test(INT_MIN, "-2147483648");
-    
-    // Other important edge cases
-    run_test(INT_MAX, "2147483647");
-    run_test(0, "0");
-    
-    // Standard cases
-    run_test(42, "42");
-    run_test(-42, "-42");
-    run_test(1234567, "1234567");
-    
-    return (0);
+	printf("%s\n", (char *)ft_memmove("HICHAM", "HICHAM", 9));
+	return (0);
 }
+
+//void run_test(int number, char *expected_str)
+//{
+//    char *result = ft_itoa(number);
+    
+//    printf("Testing:  %d\n", number);
+//    printf("Expected: %s\n", expected_str);
+//    printf("Got:      %s\n", result);
+    
+//    if (result != NULL && strcmp(result, expected_str) == 0)
+//    {
+//        printf("Result:   OK ✅\n");
+//    }
+//    else
+//    {
+//        printf("Result:   FAIL ❌\n");
+//    }
+    
+//    printf("--------------------------------------\n");
+//    free(result); // Don't forget to free the allocated memory!
+//}
+
+//int main(void)
+//{
+//    // The test you asked for
+//    run_test(INT_MIN, "-2147483648");
+    
+//    // Other important edge cases
+//    run_test(INT_MAX, "2147483647");
+//    run_test(0, "0");
+    
+//    // Standard cases
+//    run_test(42, "42");
+//    run_test(-42, "-42");
+//    run_test(1234567, "1234567");
+    
+//    return (0);
+//}
 
 //int main()
 //{
@@ -109,10 +115,10 @@ int main(void)
 
 //int main(void)
 //{
-//    char str[] = "Hello World!";
-
-//    ft_striteri(str, example_func);
-//    printf("%s\n", str);  // Should print: HeLlO WoRlD!
-
+//    char str[16] = "Hello World!";
+//    char *ptr = "hey ";
+//    int i = ft_strlcat(str, ptr, 16);
+//    printf("%s\n", str);
+//    printf("%i\n", i);
 //    return 0;
 //}
