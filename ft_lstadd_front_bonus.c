@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 15:16:51 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/22 15:21:31 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/22 19:19:21 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	list;
-
-	
+	new->next = *lst;
+	*lst = new;
 }
