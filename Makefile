@@ -6,11 +6,12 @@
 #    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/22 19:57:33 by oelfarsa         ###   ########.fr        #
+#    Updated: 2025/10/23 19:37:28 by oelfarsa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+HEADER = libft.h
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_atoi.c \
@@ -48,9 +49,11 @@ SRCS = ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c \
 
-B_SRCS =
+B_SRCS = ft_lstadd_front.c \
+		ft_lstnew.c \
+		ft_lstsize.c \
 
-B_OBJS = $(B_SRCS:%_bonus.c:%_bonus.c)
+B_OBJS = $(B_SRCS:%.c=%.o)
 
 OBJS = $(SRCS:%.c=%.o)
 
@@ -62,17 +65,17 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-%.o: %.c
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(B_OBJS)
 	@rm -f $(DEBUG)
 
 fclean: clean
 	rm -f $(NAME)
 
-bonus: $(NAME)
+bonus: $(NAME) $(B_OBJS)
 	ar rcs $(NAME) $(B_OBJS)
 
 remove:
@@ -83,3 +86,5 @@ debug: remove
 	@./$(DEBUG)
 
 re: fclean all
+
+.PHONY: clean
