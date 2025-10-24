@@ -6,16 +6,16 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 09:52:09 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/24 22:37:37 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/24 23:07:37 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count(const char *str, char c)
+static size_t	count(const char *str, char c)
 {
-	int	i;
-	int	count;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
 	count = 0;
@@ -53,9 +53,9 @@ static char	*make_word(const char *s, int fst, int lst)
 	return (word);
 }
 
-static void	free_memory(char **result, int fill)
+static void	free_memory(char **result, size_t fill)
 {
-	int i;
+	size_t i;
 
 	i = 0;
 	while(i < fill)
@@ -64,21 +64,19 @@ static void	free_memory(char **result, int fill)
 		i++;
 	}
 	free(result);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int	i;
-	int	j;
-	int	start;
-	int	end;
-	int	words;
+	size_t	i;
+	size_t	j;
+	size_t	start;
 	char	**alloc;
 
 	if(!s)
 		return (NULL);
-	words = count(s, c);
-	alloc = malloc(sizeof(char *) * (words + 1));
+	alloc = (char **)malloc(sizeof(char *) * (count(s, c) + 1));
 	if(!alloc)
 		return (NULL);
 	i = 0;
@@ -88,18 +86,13 @@ char	**ft_split(char const *s, char c)
 		while(s[i] == c)
 			i++;
 		if (s[i] != '\0')
-		{
 			start = i;
-			while(s[i] && s[i] != c)
-				i++;
-			alloc[j] = make_word(s. start, i);
-			if (!alloc[j])
-			{
-				free_memory(alloc, j);
-				return (NULL);
-			}
-			j++;
-		}
+		while(s[i] && s[i] != c)
+			i++;
+		alloc[j] = make_word(s, start, i);
+		if (!alloc[j])
+			free_memory(alloc, j);
+		j++;
 	}
 	alloc[j] = NULL;
 	return (alloc);
