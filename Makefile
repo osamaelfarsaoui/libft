@@ -6,7 +6,7 @@
 #    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/23 19:37:28 by oelfarsa         ###   ########.fr        #
+#    Updated: 2025/10/24 14:40:02 by oelfarsa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,8 @@ SRCS = ft_atoi.c \
 B_SRCS = ft_lstadd_front.c \
 		ft_lstnew.c \
 		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
 
 B_OBJS = $(B_SRCS:%.c=%.o)
 

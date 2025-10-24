@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 09:52:09 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/22 14:22:35 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/24 01:04:09 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,22 @@ static int	count(char *str, char c)
 	return (count);
 }
 
-void	free_memory(char **str, int count)
+static char	*make_word(char	*result, int fst, int lst)
+{
+	
+}
+
+static void	free_memory(char **result, int count)
 {
 	int i;
 
 	i = 0;
 	while(i < count)
 	{
-		free(str[i]);
+		free(result[i]);
 		i++;
 	}
-	free(str);
+	free(result);
 }
 
 char	**ft_split(char const *s, char c)

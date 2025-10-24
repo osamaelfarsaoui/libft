@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:02:57 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/21 21:38:40 by fornax           ###   ########.fr       */
+/*   Updated: 2025/10/23 22:08:37 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_itoa(int n)
 	}
 	while(nb != 0)
 	{
-		alloc[len--] = (nb % 10) + 48;
+		alloc[len--] = (nb % 10) + '0';
 		nb /= 10;
 	}
 	return (alloc);
