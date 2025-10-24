@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:16:46 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/23 13:59:05 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/23 22:10:51 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_memcpy(void	*dst, const void *src, size_t n)
 	t_dst = (unsigned char *)dst;
 	t_src = (unsigned char *)src;
 	i = 0;
-	while(t_src[i] && i < n)
+	while(i < n)
 	{
 		t_dst[i] = t_src[i];
 		i++;

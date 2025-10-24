@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:27:06 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/21 16:27:23 by fornax           ###   ########.fr       */
+/*   Updated: 2025/10/23 22:08:29 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = (result * 10) + (str[i] - 48);
+		result = (result * 10) + (str[i] - '0');
 		i++;
 	}
 	return (result * sign);

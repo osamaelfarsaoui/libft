@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 19:20:07 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/23 14:11:35 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/24 14:38:51 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_lstsize(t_list *lst)
 	i = 0;
 	t = lst;
 	if(!lst)
-		reuturn (NULL);
+		return (0);
 	while(t)
 	{
 		t = t->next;
