@@ -4,75 +4,108 @@
 #include <limits.h>
 #include <fcntl.h>
 
-// --- Test Utility ---
-void run_test(const char *haystack, const char *needle, size_t l)
+/* Print a result array (for human inspection) */
+static void print_res(char **res)
 {
-	// Call both functions
-	char *expected = strnstr(haystack, needle, l);
-	char *actual = ft_strnstr(haystack, needle, l);
+	size_t i;
 
-	// Compare the results
-	if (actual == expected)
+	if (!res)
 	{
-		printf("[PASS] (%s, %s, %zu)\n", haystack, needle, l);
+		printf("(NULL)\n");
+		return ;
 	}
-	else
+	printf("[");
+	i = 0;
+	while (res[i])
 	{
-		printf("[FAIL] Test Failed! (%s, %s, %zu)\n", haystack, needle, l);
-		printf("       Expected: %p (%s)\n", (void *)expected, expected);
-		printf("       Actual:   %p (%s)\n", (void *)actual, actual);
+		if (i)
+			printf(", ");
+		printf("\"%s\"", res[i]);
+		i++;
 	}
+	printf("]\n");
 }
 
-int	main(void)
+/* Free array returned by ft_split */
+static void free_res(char **res)
 {
-	char	*s = "See, I am a test string.";
-	char	empty[] = "";
+	size_t i;
 
-	printf("--- Basic Tests ---\n");
-	run_test(s, "test", 25);
-	run_test(s, "See", 5);
-	run_test(s, "string.", 25);
-	run_test(s, "am a", 10);
-	run_test(s, "NOT", 25);
-	run_test(s, s, 25);
+	if (!res)
+		return ;
+	i = 0;
+	while (res[i])
+	{
+		free(res[i]);
+		i++;
+	}
+	free(res);
+}
 
-	printf("\n--- Empty Needle Test ---\n");
-	run_test(s, empty, 25);
-	run_test(s, empty, 0);
-	run_test(empty, empty, 0);
-	run_test(empty, "a", 0);
+/* Compare result to expected NULL-terminated array.
+   Returns 1 if equal, 0 otherwise. */
+static int compare_res(char **res, char **expected)
+{
+	size_t i;
 
-	printf("\n--- 'l' Boundary Tests (Crucial!) ---\n");
-	run_test(s, "test", 0);
-	run_test(s, "See", 2);
-	run_test(s, "See", 3);
-	run_test(s, "string.", 24); // <-- This is a key test
-	run_test(s, "string.", 25); // <-- This is a key test
+	/* Both NULL is considered equal */
+	if (!res && !expected)
+		return (1);
+	/* One NULL and the other not -> not equal */
+	if (!res || !expected)
+		return (0);
+	i = 0;
+	while (res[i] || expected[i])
+	{
+		if (!res[i] || !expected[i]) /* one ended earlier */
+			return (0);
+		if (strcmp(res[i], expected[i]) != 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
-	printf("\n--- End of String / 'l' Limit Tests ---\n");
-	run_test("pouille", "pou", 6); // <-- This is a key test
-	run_test("pouille", "pou", 7); // <-- This is a key test
-	
-	run_test("abc", "abcd", 4);
-	run_test("abc", "abc", 3);
-	run_test("abc", "abc", 2);
-	
-	printf("\n--- Repetition Tests ---\n");
-	run_test("aaaaa", "aa", 5);
-	run_test("banana", "ana", 6);
-	run_test("lollol", "lol", 5);
+/* Helper to run a single test case */
+static void run_test(const char *label, const char *s, char c,
+		     char *expected[]) /* expected must be NULL-terminated */
+{
+	char **res;
+	int ok;
 
-	/*
-	 * We CANNOT test the NULL segfaults, because
-	 * if we call the real strnstr(NULL, ...),
-	 * our test program itself will crash.
-	 * * You have already confirmed your function will
-	 * crash by checking the code.
-	 */
-	// run_test(NULL, "hello", 5); // <-- DO NOT UNCOMMENT
-	// run_test("hello", NULL, 5); // <-- DO NOT UNCOMMENT
+	printf("TEST: %s\n", label);
+	printf(" input: \"%s\" delim: '%c'\n", s ? s : "NULL", c ? c : '\0');
+	res = ft_split(s, c);
+	printf(" result: ");
+	print_res(res);
+	ok = compare_res(res, expected);
+	printf(" expected: ");
+	print_res(expected);
+	printf(" => %s\n\n", ok ? "PASS" : "FAIL");
+	free_res(res);
+}
 
-	printf("\nAll tests complete.\n");
+/* Small helper to build a NULL-terminated empty expected array */
+static char *empty_expected[] = { NULL };
+
+int main(void)
+{
+	/* Define expected arrays (each must be NULL-terminated) */
+	char *exp_abc[] = { "a", "b", "c", NULL };
+	char *exp_single[] = { "hello", NULL };
+	char *exp_comma[] = { "a", "b", NULL };
+	char *exp_full[] = { "abc", NULL };
+
+	///* Run tests */
+	run_test("empty string", "", ' ', empty_expected);
+	run_test("only delimiters", "   ", ' ', empty_expected);
+	run_test("simple words", "a b c", ' ', exp_abc);
+	run_test("leading/trailing/multiple delimiters", ",a,,b,", ',', exp_comma);
+	run_test("no delimiter present", "hello", ' ', exp_single);
+	run_test("delimiter is NUL (treat whole string as single word)", "abc", '\0', exp_full);
+
+	///* Test NULL input (your implementation should return NULL) */
+	run_test("NULL input", NULL, ' ', NULL);
+
 	return (0);
 }
