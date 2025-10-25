@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:02:57 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/23 22:08:37 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/25 12:16:26 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static	int	count(int n)
 char	*ft_itoa(int n)
 {
 	int		len;
-	char	*alloc;
 	long	nb;
+	char	*alloc;
 
 	nb = (long)n;
 	len = count(nb);

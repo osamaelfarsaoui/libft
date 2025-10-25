@@ -6,7 +6,7 @@
 #    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/24 14:40:02 by oelfarsa         ###   ########.fr        #
+#    Updated: 2025/10/25 16:11:43 by oelfarsa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS = ft_atoi.c \
 		ft_substr.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
+		ft_split.c \
 		ft_strmapi.c \
 		ft_striteri.c \
 		ft_itoa.c \
@@ -84,7 +85,7 @@ remove:
 	@rm -f $(DEBUG)
 
 debug: remove
-	$(CC) $(CFLAGS) $(MAIN) -L. -lft -o $(DEBUG)
+	$(CC) $(MAIN) -L. -lft -o $(DEBUG)
 	@./$(DEBUG)
 
 re: fclean all
