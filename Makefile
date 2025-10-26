@@ -6,7 +6,7 @@
 #    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/25 16:11:43 by oelfarsa         ###   ########.fr        #
+#    Updated: 2025/10/26 11:55:47 by oelfarsa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,18 +50,17 @@ SRCS = ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c \
 
-B_SRCS = ft_lstadd_front.c \
-		ft_lstnew.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-
-B_OBJS = $(B_SRCS:%.c=%.o)
+B_SRCS = ft_lstadd_front_bonus.c \
+		ft_lstnew_bonus.c \
+		ft_lstsize_bonus.c \
+		ft_lstlast_bonus.c \
+		ft_lstadd_back_bonus.c \
+		ft_lstdelone_bonus.c \
+		ft_lstclear_bonus.c \
 
 OBJS = $(SRCS:%.c=%.o)
 
-MAIN = main.c
-DEBUG = debug
+B_OBJS = $(B_SRCS:%.c=%.o)
 
 all: $(NAME)
 
@@ -71,22 +70,14 @@ $(NAME): $(OBJS)
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
-	rm -f $(OBJS) $(B_OBJS)
-	@rm -f $(DEBUG)
-
-fclean: clean
-	rm -f $(NAME)
-
 bonus: $(NAME) $(B_OBJS)
 	ar rcs $(NAME) $(B_OBJS)
 
-remove:
-	@rm -f $(DEBUG)
+clean:
+	rm -f $(OBJS) $(B_OBJS)
 
-debug: remove
-	$(CC) $(MAIN) -L. -lft -o $(DEBUG)
-	@./$(DEBUG)
+fclean: clean
+	rm -f $(NAME)
 
 re: fclean all
 
