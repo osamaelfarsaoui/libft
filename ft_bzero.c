@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 21:36:01 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/17 10:08:31 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/26 17:17:36 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*tmp;
 
 	tmp = (unsigned char *)s;

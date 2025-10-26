@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:40:50 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/24 21:11:14 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/26 17:30:04 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	len = ft_strlen(src);
-	if(dstsize == 0)
-		return(len);
+	if (dstsize == 0)
+		return (len);
 	while (src[i] && i < dstsize - 1)
 	{
-			dst[i] = src[i];
-			i++;
+		dst[i] = src[i];
+		i++;
 	}
 	dst[i] = '\0';
-	return(len);
+	return (len);
 }
