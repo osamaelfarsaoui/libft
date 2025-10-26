@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
+#    By: fornax <fornax@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/26 11:55:47 by oelfarsa         ###   ########.fr        #
+#    Updated: 2025/10/26 15:44:03 by fornax           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ B_SRCS = ft_lstadd_front_bonus.c \
 		ft_lstadd_back_bonus.c \
 		ft_lstdelone_bonus.c \
 		ft_lstclear_bonus.c \
+		ft_lstiter_bonus.c \
 
 OBJS = $(SRCS:%.c=%.o)
 
