@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 11:18:04 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/23 14:29:19 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/26 15:24:53 by fornax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
+	if(fd < 0 || !s)
+		return ;
 	i = 0;
-	if (fd < 0)
-		return;
 	while (s[i])
 	{
 		write(fd, &s[i], 1);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:16:16 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/23 12:25:02 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/26 15:19:09 by fornax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*t;
+	t_list	*last;
 
 	if(!lst)
 		return (NULL);
-	t = lst;
-	while(t->next)
-		t = t->next;
-	return(t);
+	last = lst;
+	while(last->next)
+		last = last->next;
+	return(last);
 }

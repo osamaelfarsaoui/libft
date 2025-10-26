@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 11:15:02 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/23 17:47:02 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/26 15:25:39 by fornax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
-	if(fd < 0)
-		return;
+	if (fd < 0 || !s)
+		return ;
 	i = 0;
 	while(s[i])
 	{
