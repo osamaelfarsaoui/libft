@@ -6,15 +6,15 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:02:57 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/25 12:16:26 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/26 17:35:27 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	count(int n)
+static int	count(int n)
 {
-	int	count;
+	int		count;
 	long	nb;
 
 	count = 0;
@@ -26,12 +26,12 @@ static	int	count(int n)
 		count++;
 		nb = -nb;
 	}
-	while(nb > 0)
+	while (nb > 0)
 	{
 		count++;
 		nb /= 10;
 	}
-	return(count);
+	return (count);
 }
 
 char	*ft_itoa(int n)
@@ -46,14 +46,14 @@ char	*ft_itoa(int n)
 	if (!alloc)
 		return (NULL);
 	alloc[len--] = 0;
-	if(nb == 0)
+	if (nb == 0)
 		alloc[0] = '0';
-	if(nb < 0)
+	if (nb < 0)
 	{
 		nb = -nb;
 		alloc[0] = '-';
 	}
-	while(nb != 0)
+	while (nb != 0)
 	{
 		alloc[len--] = (nb % 10) + '0';
 		nb /= 10;

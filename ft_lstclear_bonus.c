@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:05:16 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/26 15:01:56 by fornax           ###   ########.fr       */
+/*   Updated: 2025/10/26 17:37:45 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*t;
 
+	if (!lst || !del)
+		return ;
 	while (*lst)
 	{
 		t = (*lst)->next;

@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:30 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/24 16:52:57 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/26 17:26:02 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memset(void *b, int c, size_t n)
 {
-	int	i;
-	unsigned char *tmp;
+	int				i;
+	unsigned char	*tmp;
 
 	tmp = b;
 	i = 0;

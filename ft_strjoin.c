@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:16:44 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/23 19:55:45 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/26 19:33:13 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	l;
 	char	*result;
 
-	if(!s1 || !s2)
+	if (!s1 || !s2)
 		return (NULL);
 	l = ft_strlen(s1) + ft_strlen(s2);
 	result = malloc(sizeof(char) * (l + 1));
@@ -27,10 +27,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while(s1[j])
+	while (s1[j])
 		result[i++] = s1[j++];
 	j = 0;
-	while(s2[j])
+	while (s2[j])
 		result[i++] = s2[j++];
 	result[i] = '\0';
 	return (result);
