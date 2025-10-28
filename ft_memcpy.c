@@ -6,13 +6,11 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:16:46 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/26 20:07:21 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/28 11:28:10 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 void	*ft_memcpy(void	*dst, const void *src, size_t n)
 {

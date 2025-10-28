@@ -6,7 +6,7 @@
 #    By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/14 09:40:34 by oelfarsa          #+#    #+#              #
-#    Updated: 2025/10/26 17:33:30 by oelfarsa         ###   ########.fr        #
+#    Updated: 2025/10/28 13:02:54 by oelfarsa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ B_SRCS = ft_lstadd_front_bonus.c \
 		ft_lstdelone_bonus.c \
 		ft_lstclear_bonus.c \
 		ft_lstiter_bonus.c \
+		ft_lstmap_bonus.c \
 
 OBJS = $(SRCS:%.c=%.o)
 
@@ -66,13 +67,12 @@ B_OBJS = $(B_SRCS:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
+	ar rcs $(NAME) $@
 
 bonus: $(NAME) $(B_OBJS)
-	ar rcs $(NAME) $(B_OBJS)
 
 clean:
 	rm -f $(OBJS) $(B_OBJS)
