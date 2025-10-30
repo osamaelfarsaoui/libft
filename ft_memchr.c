@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 11:23:24 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/26 17:43:02 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/30 13:39:30 by fornax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*t_s;
 	unsigned char	t_c;
 
+	if (!s)
+		return (NULL);
 	t_s = (unsigned char *)s;
 	t_c = (unsigned char)c;
 	i = 0;

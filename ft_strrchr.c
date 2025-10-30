@@ -6,7 +6,7 @@
 /*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:32:58 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/21 18:31:12 by fornax           ###   ########.fr       */
+/*   Updated: 2025/10/30 13:36:06 by fornax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strrchr(const char *s, int c)
 	char	find;
 	char	*result;
 
+	if (!s)
+		return (NULL);
 	find = (char)c;
 	result = NULL;
 	i = 0;
