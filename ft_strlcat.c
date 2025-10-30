@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fornax <fornax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 18:30:21 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/26 19:30:37 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/30 13:34:52 by fornax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	if (l_dst >= dstsize)
 		return (dstsize + l_src);
 	i = 0;
-	while (i < l_src && i < dstsize - l_dst - 1)
+	while (i < dstsize - l_dst - 1 && src[i])
 	{
 		dst[l_dst + i] = src[i];
 		i++;
