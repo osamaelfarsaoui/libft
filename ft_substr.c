@@ -6,7 +6,7 @@
 /*   By: oelfarsa <oelfarsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 10:20:51 by oelfarsa          #+#    #+#             */
-/*   Updated: 2025/10/26 19:36:10 by oelfarsa         ###   ########.fr       */
+/*   Updated: 2025/10/30 15:59:55 by oelfarsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	s_len;
 	char	*sub;
 
+	if (!s)
+		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
 		return (ft_strdup(""));
